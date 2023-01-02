@@ -7,9 +7,17 @@
 
 ## Controls:
 ### Camera:
+The Camera Object casts rays out into the 3D scene and captures the image by evaluating 
+the amount of light arriving at each pixel. The camera is free to move around within the 
+3D world space.
+
 1. Camera pan: `Middle Mouse Button`
 2. Camera rotate: `Alt + Middle Mouse Button`
-3. Camera zoom: Mouse Scroll
+3. Camera zoom: `Mouse Scroll`
+
+Other parameters: `Field of View`, `Focus Distance`, `Aperture`
+
+
 
 ![image](output/chull_def.png)
 
