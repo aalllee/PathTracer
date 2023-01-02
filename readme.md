@@ -35,8 +35,8 @@ Other parameters: `Field of View`, `Focus Distance`, `Aperture` (Described below
   <img src="output/Depth/depth6.jpg" width="256" />
 </p>
 
-label 1 | label 2| label 3
---- | ---
+label 1 | label 2 | label 3
+--- | --- | ---
 ![](output/Depth/depth1.jpg) | ![](output/Depth/depth2.jpg)| ![](output/Depth/depth3.jpg)
 
 ![image](output/chull_def.png)
