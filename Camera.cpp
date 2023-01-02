@@ -14,6 +14,7 @@ Camera::Camera(int w,int h) : w(w), h(h) {
 	aspectRatio = float(w) / h;
 	apertureRadius = 0.001f;
 	focusDistance = 5.0f;
+	FOV = 45.0f;
 }
 
 Camera::Camera(const glm::vec3& pos, const glm::vec3& lookAt, const glm::vec3& up) :

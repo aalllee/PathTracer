@@ -15,6 +15,8 @@
 #include <glad/glad.h>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <string>
 #include <cmath>
 #include "Shader.h"
 #include "Camera.h"
@@ -76,6 +78,8 @@ private:
 	ImVec4 clear_color;
 	bool show_demo_window;
 	bool show_another_window;
+
+	
 };
 
 

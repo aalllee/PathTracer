@@ -10,5 +10,6 @@ struct ShaderData {
 	int HDRIheight;
 	bool smoothNormals;
 	int rayDepth;
+	float epsilon;
 };
 

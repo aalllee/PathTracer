@@ -45,11 +45,12 @@ public:
 	void rasterize();
 	void raytrace();
 	void ResizeViewport(int w, int h, GLuint FBO, GLuint RBO, GLuint texture);
-	void updateMaterial(int ID, glm::vec4 albedo,float roughness,glm::vec4 specular,glm::vec4 emission);
+	void updateMaterial(int ID, glm::vec4 albedo,float roughness,glm::vec4 specular,glm::vec4 emission, float emPower, int type, float ior);
 	void updateShaderData(float rotate_X, float rotate_Y, float HDRIexposure);
 	void initWorldSSBO();
 
-	//prebuilt scenes
+	//scenes builds for testing
 	void buildBoxScene();
+	void buildDOFScene();
 };
 

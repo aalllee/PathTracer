@@ -47,9 +47,10 @@ void World::build() {
 	vao->Bind();
 
 	
-	
-	buildBoxScene();
+	//build a scene
 
+	buildBoxScene();
+	//buildDOFScene();
 
 	
 	//init render variables
@@ -59,7 +60,8 @@ void World::build() {
 	shader_data.HDRIexposure = 1.0f;
 	shader_data.smoothNormals = true;
 	shader_data.rayDepth = 3;
-	maxSamples = 64;
+	maxSamples = 256;
+	shader_data.epsilon = 0.0001f;
 
 	//prepare SSBOs for compute shader
 	compute = new Shader("Shaders/RayTraceCompute.shader");
@@ -113,11 +115,14 @@ void World::raytrace() {
 }
 
 
-void World::updateMaterial(int ID, glm::vec4 albedo, float roughness, glm::vec4 specular, glm::vec4 emission) {
+void World::updateMaterial(int ID, glm::vec4 albedo, float roughness, glm::vec4 specular, glm::vec4 emission, float emPower, int type,float ior) {
 	mats[ID].albedo = albedo;
 	mats[ID].roughness = roughness;
 	mats[ID].specular = specular;
 	mats[ID].emission = emission;
+	mats[ID].emissivePower = emPower;
+	mats[ID].type = type;
+	mats[ID].ior = ior;
 	shader_data.samples = 0;
 	
 }
@@ -184,11 +189,7 @@ void World::buildBoxScene() {
 	//diffuse emissive (light)
 	mats.push_back(Material(glm::vec4(0.0, 0.0, 0.0, 1.0), 0.0f, matID, 0, glm::vec4(1.5f, 1.5f, 1.5f, 1.0f))); //5
 
-	//refractive
-	mats.push_back(Material(glm::vec4(0.0, 0.0, 0.0, 1.0), 0.0f, matID, 3)); //6
 
-	//diffuse cube left 
-	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //7
 
 	//load data and populate VBOs
 	OBJmodel base("models/box/base.obj");
@@ -200,20 +201,71 @@ void World::buildBoxScene() {
 	OBJmodel leftWall("models/box/leftWall.obj");
 	leftWall.applyMaterial(2);
 
-	OBJmodel light("models/box/light.obj");
-	light.applyMaterial(5);
-
 	OBJmodel leftCube("models/box/leftCube.obj");
-	leftCube.applyMaterial(7);
+	leftCube.applyMaterial(3);
 
 	OBJmodel rightCube("models/box/rightCube.obj");
-	rightCube.applyMaterial(6);
+	rightCube.applyMaterial(4);
 
-	
-
-
+	OBJmodel light("models/box/light.obj");
+	light.applyMaterial(5);
 
 	base.merge(light).merge(leftCube).merge(rightCube).merge(leftWall).merge(rightWall);
 
 	geo = new Geometry(&base, "Shaders/Basic.shader");
+}
+
+
+void World::buildDOFScene() {
+	//create material
+
+	//base diffuse (Lambertian)
+	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //0
+
+	//diffuse (Lambertian)
+	mats.push_back(Material(glm::vec4(0.0, 1.0, 0.0, 1.0), 0.0f, matID, 0)); //1
+
+	//diffuse (Lambertian)
+	mats.push_back(Material(glm::vec4(0.0, 0.0, 1.0, 1.0), 0.0f, matID, 0)); //2
+
+	//diffuse
+	mats.push_back(Material(glm::vec4(0.0, 0.1, 0.8, 1.0), 0.0f, matID, 0)); //3
+
+	//Metallic GGX
+	mats.push_back(Material(glm::vec4(0.0, 0.0, 0.0, 1.0), 0.1f, matID, 1, glm::vec4(0.0f, 0.0f, 0.0, 1.0), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f))); //4
+
+	//diffuse emissive
+	mats.push_back(Material(glm::vec4(0.0, 0.0, 0.0, 1.0), 0.0f, matID, 0, glm::vec4(1.5f, 1.5f, 1.5f, 1.0f))); //5
+
+	//refractive
+	mats.push_back(Material(glm::vec4(0.0, 0.0, 0.0, 1.0), 0.0f, matID, 3)); //6
+
+	//diffuse
+	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //7
+
+	//load data and populate VBOs
+	OBJmodel plane("models/dof_scene/Plane.obj");
+	plane.applyMaterial(0);
+
+	OBJmodel c0("models/dof_scene/Cube0.obj");
+	c0.applyMaterial(1);
+
+	OBJmodel c1("models/dof_scene/Cube1.obj");
+	c1.applyMaterial(2);
+
+	OBJmodel c2("models/dof_scene/Cube2.obj");
+	c2.applyMaterial(3);
+
+	OBJmodel c3("models/dof_scene/Cube3.obj");
+	c3.applyMaterial(4);
+
+	OBJmodel c4("models/dof_scene/Cube4.obj");
+	c4.applyMaterial(5);
+
+	OBJmodel c5("models/dof_scene/Cube5.obj");
+	c5.applyMaterial(6);
+
+	plane.merge(c0).merge(c1).merge(c2).merge(c3).merge(c4).merge(c5);
+
+	geo = new Geometry(&plane, "Shaders/Basic.shader");
 }

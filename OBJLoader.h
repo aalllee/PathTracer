@@ -39,9 +39,9 @@ static std::vector<Vertex> loadOBJ(const char* file_name) {
 	
 	}
 
-	
+	int lineCt = 0;
 	while (std::getline(in_file, line)) {
-		
+		lineCt++;
 		ss.clear();
 		ss.str(line);
 		ss >> prefix;

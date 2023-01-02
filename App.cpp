@@ -213,6 +213,9 @@ void App::StartUp() {
 }
 
 void App::updateUI() {
+   
+
+
     ImVec2 viewPortSize;
     
     {
@@ -225,8 +228,10 @@ void App::updateUI() {
         static float ap = 1.0f;
         static int counter = 0;
         static int rayDepth = 4;
-        static int maxSamples = 64;
+        static int maxSamples = 256;
         static bool smoothNormals = true;
+        static int intInput = 256;
+        static float epsilon = 0.0001f;
 
         ImGui::Begin("Main Window");                     
         if (ImGui::Button("RENDER")) {
@@ -240,19 +245,28 @@ void App::updateUI() {
         }
       
 
+       
+
         if (ImGui::Checkbox("Smooth normals", &smoothNormals)) {
             w.shader_data.smoothNormals = smoothNormals;
             w.shader_data.samples = 0;
         }
 
-        if (ImGui::SliderInt("Ray Depth", &rayDepth, 0, 6)) {
+        if (ImGui::SliderInt("Ray Depth", &rayDepth, 0, 16)) {
             w.shader_data.rayDepth = rayDepth;
             w.shader_data.samples = 0;
         }
 
-        if (ImGui::SliderInt("Samples", &maxSamples, 1, 16000)) {
+        if (ImGui::InputInt("Samples", &maxSamples)) {
+            if (maxSamples < 1)
+                maxSamples = 0;
             w.maxSamples = maxSamples;
             w.shader_data.samples = 0;
+        }
+
+        if (ImGui::InputFloat("Epsilon", &epsilon, 0.00001f,  0.001f,"%.7f")) {
+          w.shader_data.epsilon = epsilon;
+          w.shader_data.samples = 0;
         }
          
         
@@ -262,7 +276,7 @@ void App::updateUI() {
             w.cam.FOV = fov;
             w.shader_data.samples = 0;
         }
-        if (ImGui::SliderFloat("focus distance", &fd, 0.1f, 5.0f)) {
+        if (ImGui::SliderFloat("focus distance", &fd, 0.1f, 50.0f)) {
             w.cam.focusDistance = fd;
             w.shader_data.samples = 0;
         }
@@ -276,7 +290,9 @@ void App::updateUI() {
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
        
 
-        if (ImGui::Button("SAVE png")) {
+        if (ImGui::Button("SAVE jpg")) {
+            stbi__flip_vertically_on_write = 1;
+            //LDR save
             float* pixels = new float[w.viewPortWidth * w.viewPortHeight * 4];
             glBindTexture(GL_TEXTURE_2D, w.screenTex);
             glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, pixels);
@@ -284,24 +300,22 @@ void App::updateUI() {
 
             unsigned char* rgbpixels = new unsigned char[w.viewPortWidth * w.viewPortHeight * 3];
             int j = 0;
-            for (int i = 0; i < w.viewPortWidth * w.viewPortHeight * 4; i+=4) {
-                rgbpixels[j] = unsigned char(255.0f*pixels[i]);
-                rgbpixels[j+1] = unsigned char(255.0f * pixels[i+1]);
-                rgbpixels[j+2] = unsigned char(255.0f * pixels[i+2]);
-                j += 3;
-              //  rgbpixels[i] = pixels[i];
+           
             
+            for (int i = 0; i < w.viewPortWidth * w.viewPortHeight * 4; i+=4) {
+                rgbpixels[j] = unsigned char(std::clamp(255.0f*pixels[i],0.0f,255.0f));
+                rgbpixels[j+1] = unsigned char(std::clamp(255.0f * pixels[i+1], 0.0f, 255.0f));
+                rgbpixels[j+2] = unsigned char(std::clamp(255.0f * pixels[i+2], 0.0f, 255.0f));
+                j += 3;
             }
             j = 0;
-            for (int i = 0; i < 100; i+=4) {
-                std::cout << pixels[i] << " " << pixels[i + 1] << " " << pixels[i + 2] << " " << pixels[i + 3] << std::endl;
-                std::cout << rgbpixels[j] << " " << rgbpixels[j + 1] << " " << rgbpixels[j + 2] << std::endl;
-                j += 3;
-            }
+         
+            
+            std::string outputPath = "output/OUT_" + std::to_string(w.shader_data.samples) + "_samples_"+ std::to_string(w.shader_data.rayDepth) +"_depth" + ".jpg";
 
-
-            stbi_write_jpg("sky_gray.jpg",w.viewPortWidth, w.viewPortHeight, 3, rgbpixels, 100);
+            stbi_write_jpg(outputPath.c_str(),w.viewPortWidth, w.viewPortHeight, 3, rgbpixels, 100);
             delete pixels;
+            delete rgbpixels;
 
         }
         
@@ -313,7 +327,7 @@ void App::updateUI() {
     {
         ImGui::Begin("viewPort");
         ImGui::SetCursorPos(ImVec2(0, 0));
-     
+       
         if (!render) {
             ImGui::Image((void*)texture, ImVec2(w.viewPortWidth, w.viewPortHeight), ImVec2(0, 0), ImVec2(1, -1));
         }
@@ -374,21 +388,39 @@ void App::updateUI() {
     }
 
     // 3. material window
-    if (show_another_window) {       
+    if (show_another_window) {      
+        bool diffuse = (w.mats[matID].type == 0);
+        bool metalic = (w.mats[matID].type == 1);
+        bool ON = (w.mats[matID].type == 2);
+        bool refractive = (w.mats[matID].type == 3);
+        int type = w.mats[matID].type;
+        bool updateMat = false;
+        static int matNum = w.matID - 1;
+        float emissiveMult = w.mats[matID].emissivePower;
+           
+
         ImGui::Begin("Material Window", &show_another_window);    
         if (ImGui::Button("Close"))
             show_another_window = false;
 
 
-        bool updateMat = false;
-        static ImVec4 color = ImVec4(114.0f / 255.0f, 144.0f / 255.0f, 154.0f / 255.0f, 1.0f);
-        static ImVec4 emission = ImVec4(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f, 1.0f);
-        static int matNum = w.matID-1;
-        ImGui::SliderInt("slider int 1", &matID, 0, matNum);
-
+        ImGui::SliderInt("Material ID", &matID, 0, matNum);
+    
+        ImGui::Separator();
+        if(ImGui::Checkbox("Diffuse", &diffuse)) { type = 0; updateMat = true; }
+        ImGui::SameLine();
+        if (ImGui::Checkbox("Metalic", &metalic)) { type = 1; updateMat = true; }
+        ImGui::SameLine();
+        if (ImGui::Checkbox("Oren-Nayar", &ON)) { type = 2; updateMat = true; }
+        ImGui::SameLine();
+        if(ImGui::Checkbox("Refractive", &refractive)) { type = 3; updateMat = true; }
        
-        static float roughness = 0.1f;
-        static float specular = 0.0f;
+      
+        ImVec4 albedo = ImVec4(w.mats[matID].albedo.x, w.mats[matID].albedo.y, w.mats[matID].albedo.z, w.mats[matID].albedo.w);
+        ImVec4 emission = ImVec4(w.mats[matID].emission.x, w.mats[matID].emission.y, w.mats[matID].emission.z, w.mats[matID].emission.w);
+        ImVec4 specular = ImVec4(w.mats[matID].specular.x, w.mats[matID].specular.y, w.mats[matID].specular.z, w.mats[matID].specular.w);
+        float roughness = w.mats[matID].roughness;
+        float IOR = w.mats[matID].ior;
        
         static bool alpha_preview = true;
         static bool alpha_half_preview = false;
@@ -399,17 +431,20 @@ void App::updateUI() {
         static float HDRI_rotate_Y = 0.0f;
         static float HDRI_exposure = 1.0f;
       
-
-
+      
+       
         ImGuiColorEditFlags misc_flags = (hdr ? ImGuiColorEditFlags_HDR : 0) | (drag_and_drop ? 0 : ImGuiColorEditFlags_NoDragDrop) | (alpha_half_preview ? ImGuiColorEditFlags_AlphaPreviewHalf : (alpha_preview ? ImGuiColorEditFlags_AlphaPreview : 0)) | (options_menu ? 0 : ImGuiColorEditFlags_NoOptions);
         
-        updateMat = ImGui::SliderFloat("roughness", &roughness, 0.0f, 1.0f);
-        updateMat = updateMat || ImGui::SliderFloat("specular", &specular, 0.0f, 1.0f);
-        updateMat = updateMat || ImGui::ColorPicker4("MyColor##4", (float*)&color, misc_flags, nullptr);
+        updateMat = ImGui::SliderFloat("Roughness", &roughness, 0.0f, 1.0f) || updateMat;
+        updateMat = ImGui::SliderFloat("IOR", &IOR, 1.0f, 5.0f) || updateMat;
+        updateMat = updateMat || ImGui::ColorPicker4("Specular##4", (float*)&specular, misc_flags, nullptr);
+        updateMat = updateMat || ImGui::ColorPicker4("Albedo##4", (float*)&albedo, misc_flags, nullptr);
         updateMat = updateMat || ImGui::ColorPicker4("Emissive Color##4", (float*)&emission, misc_flags, nullptr);
+        updateMat = updateMat || ImGui::SliderFloat("Emissive Power", &emissiveMult, 0.0f, 100.0f);
+       // emission = ImVec4(emission.x * emissiveMult, emission.y * emissiveMult, emission.z * emissiveMult, 1.0);
         
         if (updateMat) {
-            w.updateMaterial(matID, glm::vec4(color),roughness, glm::vec4(specular), glm::vec4(emission));     
+            w.updateMaterial(matID, glm::vec4(albedo),roughness, glm::vec4(specular), glm::vec4(emission), emissiveMult,type,IOR);
         }
 
         if (ImGui::SliderFloat("HDRI_rotate_X", &HDRI_rotate_X, 0.0f, 6.26f)

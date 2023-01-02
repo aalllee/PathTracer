@@ -1,13 +1,13 @@
 ﻿  App.cpp
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(318,40): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(318,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(318,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(321,43): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(321,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(321,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(333,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(333,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(346,41): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(359,28): warning C4553: '==': result of expression not used; did you intend '='?
-D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(367,28): warning C4553: '==': result of expression not used; did you intend '='?
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(332,40): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(332,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(332,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(335,43): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(335,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(335,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(347,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(347,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(360,41): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(373,28): warning C4553: '==': result of expression not used; did you intend '='?
+D:\Code\RayTracer\RayTrace\RayTrace\App.cpp(381,28): warning C4553: '==': result of expression not used; did you intend '='?
   RayTrace.vcxproj -> D:\Code\RayTracer\RayTrace\x64\Debug\RayTrace.exe

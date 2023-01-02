@@ -45,6 +45,7 @@ layout(std430, binding = 4) buffer shader_data
 	//
 	bool smoothNormals;
 	int rayDepth;
+	float epsilon; //hitpoint displacement in the reflected direction
 
 } shaderData;
 
@@ -52,6 +53,8 @@ struct material {
 	int ID;
 	int type;
 	float roughness;
+	float emissivePower;
+	float ior;
 	vec4 albedo;
 	vec4 emission;
 	vec4 specular;
@@ -479,10 +482,10 @@ void main() {
 
 	while (depth < shaderData.rayDepth) {
 
-		if (worldHit(r, rec, 0.0001f)) {
+		if (worldHit(r, rec, /*0.0001f*/shaderData.epsilon)) {
 
 			//emission at hitpoint contribution 
-			col += memberwiseMult(matData.m[rec.matID].emission.rgb, throughput.rgb);
+			col += memberwiseMult(matData.m[rec.matID].emissivePower*matData.m[rec.matID].emission.rgb, throughput.rgb);
 
 			//Material type handling
 
@@ -564,7 +567,7 @@ void main() {
 				float chance = GetRandomFloat01();
 
 				if (chance > kr) {
-					reflDir = refracted(rec.normal, normalize(r.direction), ior);
+					reflDir = refracted(rec.normal, normalize(r.direction), /*ior*/matData.m[rec.matID].ior);
 
 				}
 				else {
