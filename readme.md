@@ -7,7 +7,7 @@
 
 ## Controls:
 ### Camera:
-*Camera pan: Middle Mouse Button
+Camera pan: `Middle Mouse Button`
 *Camera rotate: Alt + Middle Mouse Button
 *Camera zoom: Mouse Scroll
 
