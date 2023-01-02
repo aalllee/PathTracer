@@ -15,17 +15,23 @@ the amount of light arriving at each pixel. The camera is free to move around wi
 2. Camera rotate: `Alt + Middle Mouse Button`
 3. Camera zoom: `Mouse Scroll`
 
-Other parameters: `Field of View`, `Focus Distance`, `Aperture`
+Other parameters: `Field of View`, `Focus Distance`, `Aperture` (Described below)
 
 
+
+
+### Ray Depth
+	The Ray Depth parameter controls the number of bounces the light ray emitted from the camera makes. 
+<p float="left">
+  <img src="output/Depth/depth1.png" width="470" />
+  <img src="output/Depth/depth2.png" width="470" />
+  <img src="output/Depth/depth3.png" width="470" />
+  <img src="output/Depth/depth4.png" width="470" />
+  <img src="output/Depth/depth5.png" width="470" />
+  <img src="output/Depth/depth6.png" width="470" />
+</p>
 
 ![image](output/chull_def.png)
-
-### Installing the plugin:
-	Create a "plugins" folder inside your Cinema 4D R25 directory (by default it is at "C:\Program Files\Maxon Cinema 4D R25").
-	Inside the plugins folder create a folder named "Convex Hulls 2D" and paste the "res" folder and "convexhull2d.xdl64" file inside it.
-	You will find the plugin under Extensions tab after reloading Cinema 4D.
-
 
 ## How to use the plugin:
 	
@@ -40,10 +46,6 @@ on the selected mode in the object properties.There are currently two convex hul
 	computes convex hull on it's child objects' pivot points. The child objects are free to move around
 	in Convex Hull 2D object's XZ plane.
 
-<p float="left">
-  <img src="images/Object.png" width="178" />
-  <img src="images/chull_default.png" width="600" /> 
-</p>
 
 ### Geometry based
 	To use Geometry based mode we need to enable it first in the Object settings by checking on
