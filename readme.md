@@ -7,9 +7,9 @@
 
 ## Controls:
 ### Camera:
-Camera pan: `Middle Mouse Button`
-*Camera rotate: Alt + Middle Mouse Button
-*Camera zoom: Mouse Scroll
+1. Camera pan: `Middle Mouse Button`
+2. Camera rotate: `Alt + Middle Mouse Button`
+3. Camera zoom: Mouse Scroll
 
 ![image](output/chull_def.png)
 
