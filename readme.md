@@ -6,7 +6,7 @@
 	A physically based render engine running on an OpenGL compute shader. 
 
 ## Controls:
-###Camera:
+### Camera:
 	*Camera pan: Middle Mouse Button
 	*Camera rotate: Alt + Middle Mouse Button
 	*Camera zoom: Mouse Scroll
