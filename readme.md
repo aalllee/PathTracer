@@ -23,12 +23,12 @@ Other parameters: `Field of View`, `Focus Distance`, `Aperture` (Described below
 ### Ray Depth
 	The Ray Depth parameter controls the number of bounces the light ray emitted from the camera makes. 
 <p float="left">
-  <img src="output/Depth/depth1.jpg" width="470" />
-  <img src="output/Depth/depth2.jpg" width="470" />
-  <img src="output/Depth/depth3.jpg" width="470" />
-  <img src="output/Depth/depth4.jpg" width="470" />
-  <img src="output/Depth/depth5.jpg" width="470" />
-  <img src="output/Depth/depth6.jpg" width="470" />
+  <img src="output/Depth/depth1.jpg" width="256" />
+  <img src="output/Depth/depth2.jpg" width="256" />
+  <img src="output/Depth/depth3.jpg" width="256" />
+  <img src="output/Depth/depth4.jpg" width="256" />
+  <img src="output/Depth/depth5.jpg" width="256" />
+  <img src="output/Depth/depth6.jpg" width="256" />
 </p>
 
 ![image](output/chull_def.png)
