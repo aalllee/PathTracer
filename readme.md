@@ -28,6 +28,15 @@ depth = 4 | depth = 5 | depth = 6
 --- | --- | ---
 ![](output/Samples/1024.jpg) | ![](output/Samples/4096.jpg)| ![](output/Samples/8192.jpg)
 
+### Epsilon
+	The Epsilon parameter denotes the minimum distance between the origin of a ray and it's Ray-World intersection. This means that 
+	if the Epsilon value is equal to 0.01 then any geometry intersected by a light ray at a distance less than 0.01 from its origin
+	will be ignored. It is usefull when rendering geometry with tight gaps because we can control the amount of light entering small
+	crevices. 
+	
+0.001 | 0.5 | 1.0
+--- | --- | ---
+![](output/Epsilon/001.jpg) | ![](output/Epsilon/05.jpg)| ![](output/Epsilon/1.jpg)
 
 ### Camera:
 The Camera Object casts rays out into the 3D scene and captures the image by evaluating 

@@ -49,9 +49,13 @@ void World::build() {
 	
 	//build a scene
 
-	buildBoxScene();
+	//buildBoxScene();
 	//buildDOFScene();
 
+	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //0
+	OBJmodel epsilon("models/epsilon.obj");
+	epsilon.applyMaterial(0);
+	geo = new Geometry(&epsilon, "Shaders/Basic.shader");
 	
 	//init render variables
 	shader_data.samples = 0;
