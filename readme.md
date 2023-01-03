@@ -121,9 +121,11 @@ a | b | c
 
 
 ### Viewport
+
+OpenGL raster viewport
 --- | 
 ![](output/wire.jpg) 
-OpenGL raster viewport
+
 
 The path trace has a wireframe option for the viewport. We can use this mode to navigate the scene
 without evoking the compute shader ("Shaders/RayTraceCompute.shader"). 
