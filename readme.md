@@ -143,6 +143,14 @@ Application UI
 --- | 
 ![](output/ui.png) 
 
+
+### Future updates
+* Spatial acceleration structures
+* Glossy material model
+* Texture data for materials (albedo, normal, roughness maps)
+* Sub-surface scattering
+* HDR output
+
 ### Sources
 Here is a list of extremely helpful sources that helped me a lot throughout this project:
 
