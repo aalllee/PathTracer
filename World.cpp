@@ -50,8 +50,8 @@ void World::build() {
 	//build a scene
 
 	//buildBoxScene();
-	//buildDOFScene();
-	buildOpenScene();
+	buildDOFScene();
+	//buildOpenScene();
 	
 	//init render variables
 	shader_data.samples = 0;

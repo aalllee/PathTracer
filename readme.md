@@ -90,5 +90,10 @@ Environment settings:
 `Rotate X` 
 `Rotate Y`
 `Exposure`
+
+## Materials
+### Diffuse (Lambertian)
+![](lambertian_samples/diffuse.jpg)
+
 	
 	

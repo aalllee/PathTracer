@@ -184,7 +184,7 @@ void App::StartUp() {
    
    // LOAD HDRI environment image
     int x, y, n;
-    data = stbi_loadf("images/studio.hdr", &x, &y, &n, 0);
+    data = stbi_loadf("images/interior.hdr", &x, &y, &n, 0);
   
     const int HDRIw = x;
     const int HDRIh = y;
