@@ -124,7 +124,7 @@ a | b | c
 
 OpenGL raster viewport
 --- | 
-![](output/wire.jpg) 
+![](output/wire.png) 
 
 
 The path trace has a wireframe option for the viewport. We can use this mode to navigate the scene
