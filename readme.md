@@ -103,3 +103,9 @@ Roughness | Specular
 --- | --- 
 ![](output/metalic(ggx)/ggxR.jpg) | ![](output/metalic(ggx)/ggxS.jpg)
 Roughness parameter 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right) | Specular color defines the reflected light color
+
+### Refractive
+Index Of Refraction 
+--- | 
+![](output/Refractive/ior.jpg) 
+Roughness parameter 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right) 
