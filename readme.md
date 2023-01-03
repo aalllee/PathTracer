@@ -59,6 +59,24 @@ FOV 60 | FOV 75 | FOV 90
 --- | --- | ---
 ![](output/FOV/60.jpg) | ![](output/FOV/75.jpg)| ![](output/FOV/90.jpg)	
 
+##### Focus distance + Aperture
+	Focus distance controls the focal length of the camera.
+	Aperture controls the size of the aperture.
+
+	These parameters can be used to create a depth of field effect. The geometry
+	at a distance of focal lenght from the camera will appear sharpest in the final 
+	image while everything else will appear less sharp, or more out of focus, the further
+	it is from the focal plane. The size of the aperture controls the amount of light
+ 	that is allowed to enter the camera. The greater the aperture size the wider the
+	depth of field will be.
+
+f = 17, a = 0.8 | f = 33, a = 0.8 | f = 57, a = 0.8
+--- | --- | ---
+![](output/DOF/17.jpg) | ![](output/DOF/33.jpg)| ![](output/DOF/57.jpg)
+
+f = 17, a = 0.1 | f = 17, a = 0.5 | f = 17, a = 1.0
+--- | --- | ---
+![](output/DOF/ap01.jpg) | ![](output/DOF/ap05.jpg)| ![](output/DOF/ap1.jpg)	
 
 , `Focus Distance`, `Aperture` (Described below)
 

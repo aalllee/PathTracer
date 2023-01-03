@@ -49,8 +49,8 @@ void World::build() {
 	
 	//build a scene
 
-	buildBoxScene();
-	//buildDOFScene();
+	//buildBoxScene();
+	buildDOFScene();
 	//buildOpenScene();
 	
 	//init render variables
