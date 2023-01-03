@@ -98,3 +98,7 @@ Environment settings:
 ### Diffuse (Oren-Nayar)
 <img align="left" width="400" src="output/Oren_Nayar/on_diffuse.jpg">
 Here the cubes have a roughness parameter of 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right)	
+
+f = 17, a = 0.1 | f = 17, a = 0.5 
+--- | --- 
+![](output/Oren_Nayar/on_diffuse.jpg) | ![](output/lambertian_samples/diffuse.jpg)
