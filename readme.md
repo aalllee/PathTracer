@@ -93,7 +93,7 @@ Environment settings:
 
 ## Materials
 ### Diffuse (Lambertian)
-![](lambertian_samples/diffuse.jpg)
+![](output/lambertian_samples/diffuse.jpg)
 
 	
 	
