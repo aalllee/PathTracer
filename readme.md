@@ -1,7 +1,7 @@
 # GPU Path Tracer 
 
 ## Introduction:
-	A physically based render engine running on an OpenGL compute shader. 
+A physically based path tracer running on OpenGL compute shader. 
 
 ## Controls:
 
