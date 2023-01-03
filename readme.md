@@ -131,3 +131,14 @@ The path tracer has a wireframe option for the viewport. We can use this mode to
 without evoking the compute shader ("Shaders/RayTraceCompute.shader"). 
 The wireframe rendering is done with OpenGL rasterization ("Shaders/Basic.shader")
 
+### Model support
+
+Only OBJ model import is supported. However it is quite limited since the path tracer can only interpret geometry
+data correctly if the 3D mesh is fully triangulated. It is also not recommended to load dense geometry since the path tracer
+doesn't have spatial acceleration structures for now.
+
+### UI (ImGui)
+
+Application UI
+--- | 
+![](output/ui.png) 
