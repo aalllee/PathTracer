@@ -106,7 +106,7 @@ Roughness parameter 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right) | Specular
 Index Of Refraction 
 --- | 
 ![](output/Refractive/ior.jpg) 
-IOR: 0.0, 1.3, 1.5, 1.9, 2.3, 3.5 (from left to right) 
+IOR: 1.0, 1.3, 1.5, 1.9, 2.3, 3.5 (from left to right) 
 
 IOR 1.0 | IOR 1.3 | IOR 1.7 | IOR 2.5
 --- | --- | --- | ---
