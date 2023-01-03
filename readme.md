@@ -98,3 +98,8 @@ Oren-Nayar | Lambertian
 ![](output/Oren_Nayar/on_diffuse.jpg) | ![](output/lambertian_samples/diffuse.jpg)
 The Oren-Nayar cubes have a roughness parameter of 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right) | Same as Oren-Nayar with roughness 0
 
+### Metalic GGX brdf
+Roughness | Specular 
+--- | --- 
+![](output/metalic(ggx)/ggxR.jpg) | ![](output/metalic(ggx)/ggxS.jpg)
+Roughness parameter 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right) | Specular color defines the reflected light color
