@@ -49,13 +49,9 @@ void World::build() {
 	
 	//build a scene
 
-	//buildBoxScene();
+	buildBoxScene();
 	//buildDOFScene();
-
-	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //0
-	OBJmodel epsilon("models/epsilon.obj");
-	epsilon.applyMaterial(0);
-	geo = new Geometry(&epsilon, "Shaders/Basic.shader");
+	//buildOpenScene();
 	
 	//init render variables
 	shader_data.samples = 0;
@@ -272,4 +268,28 @@ void World::buildDOFScene() {
 	plane.merge(c0).merge(c1).merge(c2).merge(c3).merge(c4).merge(c5);
 
 	geo = new Geometry(&plane, "Shaders/Basic.shader");
+}
+
+void World::buildOpenScene() {
+	//base diffuse (Lambertian)
+	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //0
+	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //1
+	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //2
+	mats.push_back(Material(glm::vec4(1.0, 1.0, 1.0, 1.0), 0.0f, matID, 0)); //3
+	
+	
+	OBJmodel plane("models/open_scene/Plane.obj");
+	plane.applyMaterial(0);
+	OBJmodel cube("models/open_scene/Cube.obj");
+	cube.applyMaterial(1);
+	OBJmodel cube2("models/open_scene/Cube_2.obj");
+	cube2.applyMaterial(2);
+	OBJmodel pyramid("models/open_scene/Pyramid.obj");
+	pyramid.applyMaterial(3);
+	
+
+	plane.merge(cube).merge(cube2).merge(pyramid);
+
+	geo = new Geometry(&plane, "Shaders/Basic.shader");
+
 }

@@ -47,7 +47,20 @@ the amount of light arriving at each pixel. The camera is free to move around wi
 2. Camera rotate: `Alt + Middle Mouse Button`
 3. Camera zoom: `Mouse Scroll`
 
-Other parameters: `Field of View`, `Focus Distance`, `Aperture` (Described below)
+#### Camera Settings
+##### Field of View
+	The Field of View is the maximum area the camera can see. It is expressed in degrees since it defines the angle
+	the camera makes with the image plane.
+FOV 15 | FOV 30 | FOV 45
+--- | --- | ---
+![](output/FOV/15.jpg) | ![](output/FOV/30.jpg)| ![](output/FOV/45.jpg)
+
+FOV 60 | FOV 75 | FOV 90
+--- | --- | ---
+![](output/FOV/60.jpg) | ![](output/FOV/75.jpg)| ![](output/FOV/90.jpg)	
+
+
+, `Focus Distance`, `Aperture` (Described below)
 
 ![image](output/chull_def.png)
 

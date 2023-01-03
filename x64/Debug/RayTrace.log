@@ -1,4 +1,4 @@
 ﻿  World.cpp
-D:\Code\RayTracer\RayTrace\RayTrace\World.cpp(115,49): warning C4244: 'argument': conversion from 'double' to 'GLuint', possible loss of data
-D:\Code\RayTracer\RayTrace\RayTrace\World.cpp(115,24): warning C4244: 'argument': conversion from 'double' to 'GLuint', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\World.cpp(111,49): warning C4244: 'argument': conversion from 'double' to 'GLuint', possible loss of data
+D:\Code\RayTracer\RayTrace\RayTrace\World.cpp(111,24): warning C4244: 'argument': conversion from 'double' to 'GLuint', possible loss of data
   RayTrace.vcxproj -> D:\Code\RayTracer\RayTrace\x64\Debug\RayTrace.exe

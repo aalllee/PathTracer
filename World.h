@@ -51,6 +51,7 @@ public:
 
 	//scenes builds for testing
 	void buildBoxScene();
+	void buildOpenScene();
 	void buildDOFScene();
 };
 
