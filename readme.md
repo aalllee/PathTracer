@@ -142,3 +142,8 @@ doesn't have spatial acceleration structures for now.
 Application UI
 --- | 
 ![](output/ui.png) 
+
+### Sources
+Here is a list of extremely helpful sources that helped me a lot throughout this project:
+* [Ray Tracing in one weekend](https://raytracing.github.io/) : Great introduction
+* abc
