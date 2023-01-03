@@ -92,13 +92,9 @@ Environment settings:
 `Exposure`
 
 ## Materials
-### Diffuse (Lambertian)
-<img align="left" width="400" src="output/lambertian_samples/diffuse.jpg">
-
-### Diffuse (Oren-Nayar)
-<img align="left" width="400" src="output/Oren_Nayar/on_diffuse.jpg">
-Here the cubes have a roughness parameter of 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right)	
-
-f = 17, a = 0.1 | f = 17, a = 0.5 
+### Diffuse brdf
+Oren-Nayar | Lambertian 
 --- | --- 
 ![](output/Oren_Nayar/on_diffuse.jpg) | ![](output/lambertian_samples/diffuse.jpg)
+The Oren-Nayar cubes have a roughness parameter of 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (from left to right)	
+
