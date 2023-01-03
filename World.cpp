@@ -50,8 +50,8 @@ void World::build() {
 	//build a scene
 
 	//buildBoxScene();
-	buildDOFScene();
-	//buildOpenScene();
+	//buildDOFScene();
+	buildOpenScene();
 	
 	//init render variables
 	shader_data.samples = 0;
@@ -288,8 +288,9 @@ void World::buildOpenScene() {
 	pyramid.applyMaterial(3);
 	
 
-	plane.merge(cube).merge(cube2).merge(pyramid);
+	//plane.merge(cube).merge(cube2).merge(pyramid);
+	pyramid.merge(cube).merge(cube2);
 
-	geo = new Geometry(&plane, "Shaders/Basic.shader");
+	geo = new Geometry(&pyramid, "Shaders/Basic.shader");
 
 }

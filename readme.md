@@ -84,6 +84,8 @@ HDR image to act as an environment light. If the light ray does not hit any geom
 sample the environment image based on the ray's direction and will interpret the pixel's
 value as an emissive contribution to the rendering equation.
 
+![](output/env.jpg)
+
 Environment settings:
 `Rotate X` 
 `Rotate Y`
