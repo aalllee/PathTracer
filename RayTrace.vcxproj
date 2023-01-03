@@ -150,7 +150,6 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="EBO.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="glad.c" />
@@ -162,9 +161,7 @@
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="maths.cpp" />
     <ClCompile Include="OBJmodel.cpp" />
-    <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SSBO.cpp" />
     <ClCompile Include="VAO.cpp" />
@@ -174,7 +171,6 @@
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Cube.h" />
     <ClInclude Include="EBO.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="HitableObject.h" />
@@ -188,10 +184,8 @@
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="Material.h" />
-    <ClInclude Include="maths.h" />
     <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="OBJmodel.h" />
-    <ClInclude Include="Ray.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderData.h" />
     <ClInclude Include="SSBO.h" />
