@@ -6,7 +6,7 @@
 ## Controls:
 
 ### Ray Depth
-	The Ray Depth parameter controls the number of bounces the light ray emitted from the camera makes. 
+The Ray Depth parameter controls the number of bounces the light ray emitted from the camera makes. 
 depth = 1 | depth = 2 | depth = 3
 --- | --- | ---
 ![](output/Depth/depth1.jpg) | ![](output/Depth/depth2.jpg)| ![](output/Depth/depth3.jpg)
@@ -16,8 +16,8 @@ depth = 4 | depth = 5 | depth = 6
 ![](output/Depth/depth4.jpg) | ![](output/Depth/depth5.jpg)| ![](output/Depth/depth6.jpg)
 
 ### Samples
-	The sample parameter controls the number of rays emitted per pixel. The light contribution of each ray is then averaged over
-	the sample count. The greater the sample count the lower the noise of the output image will be.
+The sample parameter controls the number of rays emitted per pixel. The light contribution of each ray is then averaged over
+the sample count. The greater the sample count the lower the noise of the output image will be.
 32 samples | 64 samples | 256 samples
 --- | --- | ---
 ![](output/Samples/32.jpg) | ![](output/Samples/64.jpg)| ![](output/Samples/256.jpg)
@@ -27,10 +27,10 @@ depth = 4 | depth = 5 | depth = 6
 ![](output/Samples/1024.jpg) | ![](output/Samples/4096.jpg)| ![](output/Samples/8192.jpg)
 
 ### Epsilon
-	The Epsilon parameter denotes the minimum distance between the origin of a ray and it's Ray-World intersection. This means that 
-	if the Epsilon value is equal to 0.01 then any geometry intersected by a light ray at a distance less than 0.01 from its origin
-	will be ignored. It is usefull when rendering geometry with tight gaps because we can control the amount of light entering small
-	crevices. 
+The Epsilon parameter denotes the minimum distance between the origin of a ray and it's Ray-World intersection. This means that 
+if the Epsilon value is equal to 0.01 then any geometry intersected by a light ray at a distance less than 0.01 from its origin
+will be ignored. It is usefull when rendering geometry with tight gaps because we can control the amount of light entering small
+crevices. 
 	
 0.001 | 0.5 | 1.0
 --- | --- | ---
@@ -47,8 +47,8 @@ the amount of light arriving at each pixel. The camera is free to move around wi
 
 #### Camera Settings
 ##### Field of View
-	The Field of View is the maximum area the camera can see. It is expressed in degrees since it defines the angle
-	the camera makes with the image plane.
+The Field of View is the maximum area the camera can see. It is expressed in degrees since it defines the angle
+the camera makes with the image plane.
 FOV 15 | FOV 30 | FOV 45
 --- | --- | ---
 ![](output/FOV/15.jpg) | ![](output/FOV/30.jpg)| ![](output/FOV/45.jpg)
@@ -58,15 +58,15 @@ FOV 60 | FOV 75 | FOV 90
 ![](output/FOV/60.jpg) | ![](output/FOV/75.jpg)| ![](output/FOV/90.jpg)	
 
 ##### Focus distance + Aperture
-	Focus distance controls the focal length of the camera.
-	Aperture controls the size of the aperture.
+Focus distance controls the focal length of the camera.
+Aperture controls the size of the aperture.
 
-	These parameters can be used to create a depth of field effect. The geometry
-	at a distance of focal lenght from the camera will appear sharpest in the final 
-	image while everything else will appear less sharp, or more out of focus, the further
-	it is from the focal plane. The size of the aperture controls the amount of light
- 	that is allowed to enter the camera. The greater the aperture size the wider the
-	depth of field will be.
+These parameters can be used to create a depth of field effect. The geometry
+at a distance of focal lenght from the camera will appear sharpest in the final 
+image while everything else will appear less sharp, or more out of focus, the further
+it is from the focal plane. The size of the aperture controls the amount of light
+that is allowed to enter the camera. The greater the aperture size the wider the
+depth of field will be.
 
 f = 17, a = 0.8 | f = 33, a = 0.8 | f = 57, a = 0.8
 --- | --- | ---
