@@ -78,7 +78,18 @@ f = 17, a = 0.1 | f = 17, a = 0.5 | f = 17, a = 1.0
 --- | --- | ---
 ![](output/DOF/ap01.jpg) | ![](output/DOF/ap05.jpg)| ![](output/DOF/ap1.jpg)	
 
-, `Focus Distance`, `Aperture` (Described below)
+###Environment mapping
+	The path tracer supports environment mapping. More specifically we can load an equirectangular
+	HDR image to act as an environment light. If the light ray does not hit any geometry it will 
+	sample the environment image based on the ray's direction and will interpret the pixel's
+	value as an emissive contribution to the rendering equation.
+
+HDRI settings:
+`Rotate X` 
+`Rotate Y`
+`Exposure`
+	
+	
 
 ![image](output/chull_def.png)
 
