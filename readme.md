@@ -120,5 +120,12 @@ a | b | c
 ![](output/Emissive/em2.jpg) | ![](output/Emissive/em1.jpg) | ![](output/Emissive/em3.jpg)
 
 
+### Viewport
+--- | 
+![](output/wire.jpg) 
+OpenGL raster viewport
 
+The path trace has a wireframe option for the viewport. We can use this mode to navigate the scene
+without evoking the compute shader ("Shaders/RayTraceCompute.shader"). 
+The wireframe rendering is done with OpenGL rasterization ("Shaders/Basic.shader")
 
