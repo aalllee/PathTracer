@@ -116,12 +116,9 @@ IOR 1.0 | IOR 1.3 | IOR 1.7 | IOR 2.5
 Each material has an emissive parameter which allows the geometry to emit light.
 
 
---- | 
-![](output/Emissive/em2.jpg) 
-IOR: 0.0, 1.3, 1.5, 1.9, 2.3, 3.5 (from left to right) 
+--- | --- | 
+![](output/Emissive/em2.jpg) | ![](output/Emissive/em1.jpg)
 
-IOR 1.0 | IOR 1.3 | IOR 1.7 | IOR 2.5
---- | --- | --- | ---
-![](output/Refractive/1.jpg) | ![](output/Refractive/13.jpg) | ![](output/Refractive/17.jpg) | ![](output/Refractive/25.jpg)
+
 
 
