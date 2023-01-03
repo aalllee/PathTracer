@@ -145,5 +145,13 @@ Application UI
 
 ### Sources
 Here is a list of extremely helpful sources that helped me a lot throughout this project:
-* [Ray Tracing in one weekend](https://raytracing.github.io/) : Great introduction
-* abc
+
+* [Ray Tracing in one weekend](https://raytracing.github.io/)
+* [Ray Tracing from the ground up] (https://www.amazon.com/Ray-Tracing-Ground-Kevin-Suffern/dp/1568812728)
+* [Physically based rendering] (https://www.pbr-book.org/)
+* [Computer Graphics Programming in OpenGL with C++] (https://www.amazon.com/Computer-Graphics-Programming-OpenGL-C/dp/1683922212)
+* [The Cherno] (https://www.youtube.com/@TheCherno)
+* [Victor Gordan] (https://www.youtube.com/@VictorGordan)
+* [Scratchapixel] (https://www.scratchapixel.com/)
+* [BoyBaykiller] (https://github.com/BoyBaykiller/IDKEngine)
+* [Graphics Programming subreddit] (https://www.reddit.com/r/GraphicsProgramming/)
