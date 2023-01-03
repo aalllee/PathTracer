@@ -6,16 +6,6 @@
 	A physically based render engine running on an OpenGL compute shader. 
 
 ## Controls:
-### Camera:
-The Camera Object casts rays out into the 3D scene and captures the image by evaluating 
-the amount of light arriving at each pixel. The camera is free to move around within the 
-3D world space.
-
-1. Camera pan: `Middle Mouse Button`
-2. Camera rotate: `Alt + Middle Mouse Button`
-3. Camera zoom: `Mouse Scroll`
-
-Other parameters: `Field of View`, `Focus Distance`, `Aperture` (Described below)
 
 ### Ray Depth
 	The Ray Depth parameter controls the number of bounces the light ray emitted from the camera makes. 
@@ -26,6 +16,29 @@ depth = 1 | depth = 2 | depth = 3
 depth = 4 | depth = 5 | depth = 6
 --- | --- | ---
 ![](output/Depth/depth4.jpg) | ![](output/Depth/depth5.jpg)| ![](output/Depth/depth6.jpg)
+
+### Samples
+	The sample parameter controls the number of rays emitted per pixel. The light contribution of each ray is then averaged over
+	the sample count. The greater the sample count the lower the noise of the output image will be.
+32 samples | 64 samples | 256 samples
+--- | --- | ---
+![](output/Samples/32.jpg) | ![](output/Samples/64.jpg)| ![](output/Samples/256.jpg)
+
+1024 samples | 4096 samples | 8192 samples
+--- | --- | ---
+![](output/Samples/1024.jpg) | ![](output/Samples/4096.jpg)| ![](output/Samples/8192.jpg)
+
+
+### Camera:
+The Camera Object casts rays out into the 3D scene and captures the image by evaluating 
+the amount of light arriving at each pixel. The camera is free to move around within the 
+3D world space.
+
+1. Camera pan: `Middle Mouse Button`
+2. Camera rotate: `Alt + Middle Mouse Button`
+3. Camera zoom: `Mouse Scroll`
+
+Other parameters: `Field of View`, `Focus Distance`, `Aperture` (Described below)
 
 ![image](output/chull_def.png)
 
