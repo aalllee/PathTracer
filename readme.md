@@ -124,7 +124,7 @@ a | b | c
 
 OpenGL raster viewport | Compute Shader view
 --- | ---
-![](output/wire.png) | ![](output/compute.png)
+![](output/wire.png) | ![](output/compute.jpg)
 
 
 The path tracer has a wireframe option for the viewport. We can use this mode to navigate the scene
